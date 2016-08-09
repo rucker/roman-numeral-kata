@@ -2,13 +2,49 @@
 #include <check.h>
 #include "../src/numerals.h"
 
-START_TEST(test_add_i_and_i_returns_ii) {
+START_TEST(add_i_and_i_produces_ii) {
     char first[] = "i";
     char second[] = "i";
     char expected[] = "ii";
     char result[sizeof(expected)];
     add(first, second, result);
 	ck_assert_str_eq(result, expected);
+}
+END_TEST
+
+START_TEST(add_i_and_ii_produces_iii) {
+    char first[] = "i";
+    char second[] = "ii";
+    char expected[] = "iii";
+    size_t expectedSize = sizeof expected;
+    char result[expectedSize];
+    memset(result, 0, expectedSize);
+    add(first, second, result);
+       ck_assert_str_eq(result, expected);
+}
+END_TEST
+
+START_TEST(add_iv_and_viii_produces_xii) {
+    char first[] = "iv";
+    char second[] = "viii";
+    char expected[] = "xii";
+    size_t expectedSize = sizeof expected;
+    char result[expectedSize];
+    memset(result, 0, expectedSize);
+    add(first, second, result);
+       ck_assert_str_eq(result, expected);
+}
+END_TEST
+
+START_TEST(add_xxvii_and_xl_produces_lxvii) {
+    char first[] = "xxvii";
+    char second[] = "xl";
+    char expected[] = "lxvii";
+    size_t expectedSize = sizeof expected;
+    char result[expectedSize];
+    memset(result, 0, expectedSize);
+    add(first, second, result);
+    ck_assert_str_eq(result, expected);
 }
 END_TEST
 
@@ -247,7 +283,11 @@ Suite * numerals_suite(void) {
     s = suite_create("numerals");
     tc_basic = tcase_create("basic");
 
-    tcase_add_test(tc_basic, test_add_i_and_i_returns_ii);
+    tcase_add_test(tc_basic, add_i_and_i_produces_ii);
+    tcase_add_test(tc_basic, add_i_and_ii_produces_iii);
+    tcase_add_test(tc_basic, add_iv_and_viii_produces_xii);
+    tcase_add_test(tc_basic, add_xxvii_and_xl_produces_lxvii);
+
     tcase_add_test(tc_basic, char_i_or_I_translates_to_int_1);
     tcase_add_test(tc_basic, char_v_or_V_translates_to_int_5);
     tcase_add_test(tc_basic, char_x_or_X_translates_to_int_10);
