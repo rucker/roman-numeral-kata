@@ -174,6 +174,72 @@ START_TEST(int_3_translates_to_numeral_iii) {
 }
 END_TEST
 
+START_TEST(int_4_translates_to_numeral_iv) {
+    int number = 4;
+    char expected[] = "iv";
+    size_t expectedSize = sizeof expected;
+    char result[expectedSize];
+    memset(result, 0, expectedSize);
+    intToNumeral(number, result);
+    ck_assert_str_eq(result, expected);
+}
+END_TEST
+
+START_TEST(int_9_translates_to_numeral_ix) {
+    int number = 9;
+    char expected[] = "ix";
+    size_t expectedSize = sizeof expected;
+    char result[expectedSize];
+    memset(result, 0, expectedSize);
+    intToNumeral(number, result);
+    ck_assert_str_eq(result, expected);
+}
+END_TEST
+
+START_TEST(int_40_translates_to_numeral_xl) {
+    int number = 40;
+    char expected[] = "xl";
+    size_t expectedSize = sizeof expected;
+    char result[expectedSize];
+    memset(result, 0, expectedSize);
+    intToNumeral(number, result);
+    ck_assert_str_eq(result, expected);
+}
+END_TEST
+
+START_TEST(int_90_translates_to_numeral_xc) {
+    int number = 90;
+    char expected[] = "xc";
+    size_t expectedSize = sizeof expected;
+    char result[expectedSize];
+    memset(result, 0, expectedSize);
+    intToNumeral(number, result);
+    ck_assert_str_eq(result, expected);
+}
+END_TEST
+
+START_TEST(int_400_translates_to_numeral_cd) {
+    int number = 400;
+    char expected[] = "cd";
+    size_t expectedSize = sizeof expected;
+    char result[expectedSize];
+    memset(result, 0, expectedSize);
+    intToNumeral(number, result);
+    ck_assert_str_eq(result, expected);
+}
+END_TEST
+
+START_TEST(int_900_translates_to_numeral_cm) {
+    int number = 900;
+    char expected[] = "cm";
+    size_t expectedSize = sizeof expected;
+    char result[expectedSize];
+    memset(result, 0, expectedSize);
+    intToNumeral(number, result);
+    ck_assert_str_eq(result, expected);
+}
+END_TEST
+
 Suite * numerals_suite(void) {
     Suite *s;
     TCase *tc_basic;
@@ -206,6 +272,14 @@ Suite * numerals_suite(void) {
 
     tcase_add_test(tc_basic, int_2_translates_to_numeral_ii);
     tcase_add_test(tc_basic, int_3_translates_to_numeral_iii);
+    tcase_add_test(tc_basic, int_2_translates_to_numeral_ii);
+    tcase_add_test(tc_basic, int_3_translates_to_numeral_iii);
+    tcase_add_test(tc_basic, int_4_translates_to_numeral_iv);
+    tcase_add_test(tc_basic, int_9_translates_to_numeral_ix);
+    tcase_add_test(tc_basic, int_40_translates_to_numeral_xl);
+    tcase_add_test(tc_basic, int_90_translates_to_numeral_xc);
+    tcase_add_test(tc_basic, int_400_translates_to_numeral_cd);
+    tcase_add_test(tc_basic, int_900_translates_to_numeral_cm);
 
     suite_add_tcase(s, tc_basic);
 

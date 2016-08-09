@@ -32,22 +32,20 @@ int numeralToInt(char *numeral) {
 }
 
 void intToNumeral(int number, char *buf) {
-    char numerals[2][2] = { "v", "i" };
+    char numerals[13][3] = { "m", "cm", "d", "cd", "c", "xc", "l", "xl", "x", "ix", "v", "iv", "i" };
     char *numeralsPtr = numerals[0];
-    char numeral[2];
+    char numeral[3];
+    strcpy(numeral, numeralsPtr);
+    numeralsPtr += 3;
 
     while (number > 0) {
-        strcpy(numeral, numeralsPtr);
-        int thisNum = charToInt(numeral);
-
-        strcpy(numeral, numeralsPtr + 2);
-        int nextNum = charToInt(numeral);
-        numeralsPtr -= 2;
-
-        if (number < thisNum && number >= nextNum) {
+        while (number < numeralToInt(numeral)) {
+            strcpy(numeral, numeralsPtr);
+            numeralsPtr += 3;
+        }
+        while (number >= numeralToInt(numeral)) {
             strcat(buf, numeral);
-            number -= nextNum;
-            numeralsPtr += 2;
+            number -= numeralToInt(numeral);
         }
     }
 }
