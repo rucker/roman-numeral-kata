@@ -12,6 +12,20 @@ START_TEST(test_add_i_and_i_returns_ii) {
 }
 END_TEST
 
+START_TEST(numeral_ii_translates_to_int_2) {
+    char numeral[] = "ii";
+    int expected = 2;
+    ck_assert_int_eq(numeralToInt(numeral), expected);
+}
+END_TEST
+
+START_TEST(numeral_iii_translates_to_int_3) {
+    char numeral[] = "iii";
+    int expected = 3;
+    ck_assert_int_eq(numeralToInt(numeral), expected);
+}
+END_TEST
+
 START_TEST(char_i_or_I_translates_to_int_1) {
     char numeral[] = "i";
     int expected = 1;
@@ -83,8 +97,10 @@ Suite * numerals_suite(void) {
     tcase_add_test(tc_basic, char_c_or_C_translates_to_int_100);
     tcase_add_test(tc_basic, char_d_or_D_translates_to_int_500);
     tcase_add_test(tc_basic, char_m_or_M_translates_to_int_1000);
-
     tcase_add_exit_test(tc_basic, invalid_char_causes_program_exit_with_status_1, 1);
+
+    tcase_add_test(tc_basic, numeral_ii_translates_to_int_2);
+    tcase_add_test(tc_basic, numeral_iii_translates_to_int_3);
 
     suite_add_tcase(s, tc_basic);
 

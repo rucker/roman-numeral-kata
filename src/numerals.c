@@ -9,6 +9,15 @@ void add(char *first, char *second, char *str) {
     strcat(str, second);
 }
 
+int numeralToInt(char *numeral) {
+    char *ptr = numeral;
+    int result = 0;
+    while (*ptr) {
+        result += charToInt(ptr++);
+    }
+    return result;
+}
+
 int charToInt(char *c) {
     char lnumeral = tolower(*c);
      switch(lnumeral) {
