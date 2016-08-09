@@ -12,13 +12,23 @@ START_TEST(test_add_i_and_i_returns_ii) {
 }
 END_TEST
 
+START_TEST(char_i_translates_to_int_1) {
+    char i[] = "i";
+    int expected = 1;
+    ck_assert_int_eq(charToInt(i), expected);
+}
+END_TEST
+
 Suite * numerals_suite(void) {
     Suite *s;
     TCase *tc_basic;
 
     s = suite_create("numerals");
     tc_basic = tcase_create("basic");
+
     tcase_add_test(tc_basic, test_add_i_and_i_returns_ii);
+    tcase_add_test(tc_basic, char_i_translates_to_int_1);
+
     suite_add_tcase(s, tc_basic);
 
     return s;
