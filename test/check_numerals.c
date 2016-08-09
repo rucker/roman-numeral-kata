@@ -12,63 +12,53 @@ START_TEST(test_add_i_and_i_returns_ii) {
 }
 END_TEST
 
-START_TEST(single_valid_char_translates_to_int) {
+START_TEST(char_i_or_I_translates_to_int_1) {
     char numeral[] = "i";
-     int expected = 1;
+    int expected = 1;
     ck_assert_int_eq(charToInt(numeral), expected);
+}
+END_TEST
 
-    strcpy(numeral, "v");
-    expected = 5;
+START_TEST(char_v_or_V_translates_to_int_5) {
+    char numeral[] = "v";
+    int expected = 5;
     ck_assert_int_eq(charToInt(numeral), expected);
+}
+END_TEST
 
-    strcpy(numeral, "x");
-    expected = 10;
+START_TEST(char_x_or_X_translates_to_int_10) {
+    char numeral[] = "v";
+    int expected = 5;
     ck_assert_int_eq(charToInt(numeral), expected);
+}
+END_TEST
 
-    strcpy(numeral, "l");
-    expected = 50;
+START_TEST(char_l_or_L_translates_to_int_50) {
+    char numeral[] = "x";
+    int expected = 10;
     ck_assert_int_eq(charToInt(numeral), expected);
+}
+END_TEST
 
-    strcpy(numeral, "c");
-    expected = 100;
+START_TEST(char_c_or_C_translates_to_int_100) {
+    char numeral[] = "l";
+    int expected = 50;
     ck_assert_int_eq(charToInt(numeral), expected);
+}
+END_TEST
 
-    strcpy(numeral, "d");
-    expected = 500;
+START_TEST(char_d_or_D_translates_to_int_500) {
+    char numeral[] = "c";
+    int expected = 100;
     ck_assert_int_eq(charToInt(numeral), expected);
+}
+END_TEST
 
-    strcpy(numeral, "m");
-    expected = 1000;
+START_TEST(char_m_or_M_translates_to_int_1000) {
+    char numeral[] = "d";
+    int expected = 500;
     ck_assert_int_eq(charToInt(numeral), expected);
-
-    strcpy(numeral, "I");
-    expected = 1;
-    ck_assert_int_eq(charToInt(numeral), expected);
-
-    strcpy(numeral, "V");
-    expected = 5;
-    ck_assert_int_eq(charToInt(numeral), expected);
-
-    strcpy(numeral, "X");
-    expected = 10;
-    ck_assert_int_eq(charToInt(numeral), expected);
-
-    strcpy(numeral, "L");
-    expected = 50;
-    ck_assert_int_eq(charToInt(numeral), expected);
-
-    strcpy(numeral, "C");
-    expected = 100;
-    ck_assert_int_eq(charToInt(numeral), expected);
-
-    strcpy(numeral, "D");
-    expected = 500;
-    ck_assert_int_eq(charToInt(numeral), expected);
-
-    strcpy(numeral, "M");
-    expected = 1000;
-    ck_assert_int_eq(charToInt(numeral), expected);
- }
+}
 END_TEST
 
 Suite * numerals_suite(void) {
@@ -79,7 +69,13 @@ Suite * numerals_suite(void) {
     tc_basic = tcase_create("basic");
 
     tcase_add_test(tc_basic, test_add_i_and_i_returns_ii);
-    tcase_add_test(tc_basic, single_valid_char_translates_to_int);
+    tcase_add_test(tc_basic, char_i_or_I_translates_to_int_1);
+    tcase_add_test(tc_basic, char_v_or_V_translates_to_int_5);
+    tcase_add_test(tc_basic, char_x_or_X_translates_to_int_10);
+    tcase_add_test(tc_basic, char_l_or_L_translates_to_int_50);
+    tcase_add_test(tc_basic, char_c_or_C_translates_to_int_100);
+    tcase_add_test(tc_basic, char_d_or_D_translates_to_int_500);
+    tcase_add_test(tc_basic, char_m_or_M_translates_to_int_1000);
 
     suite_add_tcase(s, tc_basic);
 
