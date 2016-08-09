@@ -12,11 +12,36 @@ START_TEST(test_add_i_and_i_returns_ii) {
 }
 END_TEST
 
-START_TEST(char_i_translates_to_int_1) {
-    char i[] = "i";
-    int expected = 1;
-    ck_assert_int_eq(charToInt(i), expected);
-}
+START_TEST(single_valid_char_translates_to_int) {
+    char numeral[] = "i";
+     int expected = 1;
+    ck_assert_int_eq(charToInt(numeral), expected);
+
+    strcpy(numeral, "v");
+    expected = 5;
+    ck_assert_int_eq(charToInt(numeral), expected);
+
+    strcpy(numeral, "x");
+    expected = 10;
+    ck_assert_int_eq(charToInt(numeral), expected);
+
+    strcpy(numeral, "l");
+    expected = 50;
+    ck_assert_int_eq(charToInt(numeral), expected);
+
+    strcpy(numeral, "c");
+    expected = 100;
+    ck_assert_int_eq(charToInt(numeral), expected);
+
+    strcpy(numeral, "d");
+    expected = 500;
+    ck_assert_int_eq(charToInt(numeral), expected);
+
+    strcpy(numeral, "m");
+    expected = 1000;
+    ck_assert_int_eq(charToInt(numeral), expected);
+
+ }
 END_TEST
 
 Suite * numerals_suite(void) {
@@ -27,7 +52,7 @@ Suite * numerals_suite(void) {
     tc_basic = tcase_create("basic");
 
     tcase_add_test(tc_basic, test_add_i_and_i_returns_ii);
-    tcase_add_test(tc_basic, char_i_translates_to_int_1);
+    tcase_add_test(tc_basic, single_valid_char_translates_to_int);
 
     suite_add_tcase(s, tc_basic);
 
