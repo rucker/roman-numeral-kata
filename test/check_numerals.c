@@ -41,6 +41,33 @@ START_TEST(single_valid_char_translates_to_int) {
     expected = 1000;
     ck_assert_int_eq(charToInt(numeral), expected);
 
+    strcpy(numeral, "I");
+    expected = 1;
+    ck_assert_int_eq(charToInt(numeral), expected);
+
+    strcpy(numeral, "V");
+    expected = 5;
+    ck_assert_int_eq(charToInt(numeral), expected);
+
+    strcpy(numeral, "X");
+    expected = 10;
+    ck_assert_int_eq(charToInt(numeral), expected);
+
+    strcpy(numeral, "L");
+    expected = 50;
+    ck_assert_int_eq(charToInt(numeral), expected);
+
+    strcpy(numeral, "C");
+    expected = 100;
+    ck_assert_int_eq(charToInt(numeral), expected);
+
+    strcpy(numeral, "D");
+    expected = 500;
+    ck_assert_int_eq(charToInt(numeral), expected);
+
+    strcpy(numeral, "M");
+    expected = 1000;
+    ck_assert_int_eq(charToInt(numeral), expected);
  }
 END_TEST
 

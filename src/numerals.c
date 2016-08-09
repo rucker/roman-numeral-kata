@@ -1,4 +1,5 @@
 #include <string.h>
+#include <ctype.h>
 #include "numerals.h"
 
 void add(char *first, char *second, char *str) {
@@ -7,7 +8,8 @@ void add(char *first, char *second, char *str) {
 }
 
 int charToInt(char *c) {
-     switch(*c) {
+    char lnumeral = tolower(*c);
+     switch(lnumeral) {
          case 'i':
              return 1;
         case 'v':
