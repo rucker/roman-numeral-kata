@@ -33,15 +33,16 @@ int numeralToInt(char *numeral) {
 
 void intToNumeral(int number, char *buf) {
     char numerals[13][3] = { "m", "cm", "d", "cd", "c", "xc", "l", "xl", "x", "ix", "v", "iv", "i" };
+    int numeralArrLen = 3;
     char *numeralsPtr = numerals[0];
-    char numeral[3];
+    char numeral[numeralArrLen];
     strcpy(numeral, numeralsPtr);
-    numeralsPtr += 3;
+    numeralsPtr += numeralArrLen;
 
     while (number > 0) {
         while (number < numeralToInt(numeral)) {
             strcpy(numeral, numeralsPtr);
-            numeralsPtr += 3;
+            numeralsPtr += numeralArrLen;
         }
         while (number >= numeralToInt(numeral)) {
             strcat(buf, numeral);
