@@ -4,9 +4,8 @@
 #include <stdio.h>
 #include "numerals.h"
 
-void add(char *first, char *second, char *str) {
-    strcpy(str, first);
-    strcat(str, second);
+void add(char *first, char *second, char *buf) {
+    intToNumeral(numeralToInt(first) + numeralToInt(second), buf);
 }
 
 int numeralToInt(char *numeral) {
