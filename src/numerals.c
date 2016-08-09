@@ -31,6 +31,27 @@ int numeralToInt(char *numeral) {
      return totalForNumeral;
 }
 
+void intToNumeral(int number, char *buf) {
+    char numerals[2][2] = { "v", "i" };
+    char *numeralsPtr = numerals[0];
+    char numeral[2];
+
+    while (number > 0) {
+        strcpy(numeral, numeralsPtr);
+        int thisNum = charToInt(numeral);
+
+        strcpy(numeral, numeralsPtr + 2);
+        int nextNum = charToInt(numeral);
+        numeralsPtr -= 2;
+
+        if (number < thisNum && number >= nextNum) {
+            strcat(buf, numeral);
+            number -= nextNum;
+            numeralsPtr += 2;
+        }
+    }
+}
+
 int charToInt(char *c) {
     char lnumeral = tolower(*c);
      switch(lnumeral) {

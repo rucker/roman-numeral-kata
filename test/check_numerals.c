@@ -152,6 +152,28 @@ START_TEST(invalid_char_causes_program_exit_with_status_1) {
 }
 END_TEST
 
+START_TEST(int_2_translates_to_numeral_ii) {
+    int number = 2;
+    char expected[] = "ii";
+    size_t expectedSize = sizeof expected;
+    char result[expectedSize];
+    memset(result, 0, expectedSize);
+    intToNumeral(number, result);
+    ck_assert_str_eq(result, expected);
+}
+END_TEST
+
+START_TEST(int_3_translates_to_numeral_iii) {
+    int number = 2;
+    char expected[] = "ii";
+    size_t expectedSize = sizeof expected;
+    char result[expectedSize];
+    memset(result, 0, expectedSize);
+    intToNumeral(number, result);
+    ck_assert_str_eq(result, expected);
+}
+END_TEST
+
 Suite * numerals_suite(void) {
     Suite *s;
     TCase *tc_basic;
@@ -181,6 +203,9 @@ Suite * numerals_suite(void) {
     tcase_add_test(tc_basic, numeral_mmxvi_translates_to_value_2016);
     tcase_add_test(tc_basic, numeral_mmdxxv_translates_to_value_2525);
     tcase_add_test(tc_basic, numeral_mmmcmxcix_translates_to_value_3999);
+
+    tcase_add_test(tc_basic, int_2_translates_to_numeral_ii);
+    tcase_add_test(tc_basic, int_3_translates_to_numeral_iii);
 
     suite_add_tcase(s, tc_basic);
 
