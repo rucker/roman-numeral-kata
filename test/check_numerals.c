@@ -61,6 +61,13 @@ START_TEST(char_m_or_M_translates_to_int_1000) {
 }
 END_TEST
 
+START_TEST(invalid_char_causes_program_exit_with_status_1) {
+    char numeral[] = "z";
+    int expected = 0;
+    ck_assert_int_eq(charToInt(numeral), expected);
+}
+END_TEST
+
 Suite * numerals_suite(void) {
     Suite *s;
     TCase *tc_basic;
@@ -76,6 +83,8 @@ Suite * numerals_suite(void) {
     tcase_add_test(tc_basic, char_c_or_C_translates_to_int_100);
     tcase_add_test(tc_basic, char_d_or_D_translates_to_int_500);
     tcase_add_test(tc_basic, char_m_or_M_translates_to_int_1000);
+
+    tcase_add_exit_test(tc_basic, invalid_char_causes_program_exit_with_status_1, 1);
 
     suite_add_tcase(s, tc_basic);
 
