@@ -26,6 +26,13 @@ START_TEST(numeral_iii_translates_to_int_3) {
 }
 END_TEST
 
+START_TEST(numeral_iv_translates_to_int_4) {
+    char numeral[] = "iv";
+    int expected = 4;
+    ck_assert_int_eq(numeralToInt(numeral), expected);
+}
+END_TEST
+
 START_TEST(char_i_or_I_translates_to_int_1) {
     char numeral[] = "i";
     int expected = 1;
@@ -101,6 +108,7 @@ Suite * numerals_suite(void) {
 
     tcase_add_test(tc_basic, numeral_ii_translates_to_int_2);
     tcase_add_test(tc_basic, numeral_iii_translates_to_int_3);
+    tcase_add_test(tc_basic, numeral_iv_translates_to_int_4);
 
     suite_add_tcase(s, tc_basic);
 

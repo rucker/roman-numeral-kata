@@ -10,12 +10,25 @@ void add(char *first, char *second, char *str) {
 }
 
 int numeralToInt(char *numeral) {
-    char *ptr = numeral;
-    int result = 0;
-    while (*ptr) {
-        result += charToInt(ptr++);
-    }
-    return result;
+    int i, len = strlen(numeral);
+    char thisChar[2];
+    char *numeralPtr = numeral + len -1;
+    int thisVal;
+    int prevVal = 0;
+    int totalForNumeral = 0;
+
+    for (i = len; i > 0; i--) {
+        memcpy(thisChar, numeralPtr--, sizeof(int));
+        thisVal = charToInt(thisChar);
+        if (thisVal < prevVal) {
+            totalForNumeral -= thisVal;
+        }
+        else {
+            totalForNumeral += thisVal;
+        }
+        prevVal = thisVal;
+     }
+     return totalForNumeral;
 }
 
 int charToInt(char *c) {
