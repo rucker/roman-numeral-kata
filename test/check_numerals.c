@@ -48,6 +48,30 @@ START_TEST(add_xxvii_and_xl_produces_lxvii) {
 }
 END_TEST
 
+START_TEST(subtract_ix_from_c_produces_xci) {
+    char first[] = "c";
+    char second[] = "ix";
+    char expected[] = "xci";
+    size_t expectedSize = sizeof expected;
+    char result[expectedSize];
+    memset(result, 0, expectedSize);
+    subtract(first, second, result);
+       ck_assert_str_eq(result, expected);
+}
+END_TEST
+
+START_TEST(subtract_xix_from_xliii_produces_xxiv) {
+    char first[] = "xliii";
+    char second[] = "xix";
+    char expected[] = "xxiv";
+    size_t expectedSize = sizeof expected;
+    char result[expectedSize];
+    memset(result, 0, expectedSize);
+    subtract(first, second, result);
+       ck_assert_str_eq(result, expected);
+}
+END_TEST
+
 START_TEST(numeral_ii_translates_to_int_2) {
     char numeral[] = "ii";
     int expected = 2;
@@ -287,6 +311,9 @@ Suite * numerals_suite(void) {
     tcase_add_test(tc_basic, add_i_and_ii_produces_iii);
     tcase_add_test(tc_basic, add_iv_and_viii_produces_xii);
     tcase_add_test(tc_basic, add_xxvii_and_xl_produces_lxvii);
+
+    tcase_add_test(tc_basic, subtract_ix_from_c_produces_xci);
+    tcase_add_test(tc_basic, subtract_xix_from_xliii_produces_xxiv);
 
     tcase_add_test(tc_basic, char_i_or_I_translates_to_int_1);
     tcase_add_test(tc_basic, char_v_or_V_translates_to_int_5);

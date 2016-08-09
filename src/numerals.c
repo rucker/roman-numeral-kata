@@ -8,6 +8,10 @@ void add(char *first, char *second, char *buf) {
     intToNumeral(numeralToInt(first) + numeralToInt(second), buf);
 }
 
+void subtract(char *first, char *second, char *buf) {
+    intToNumeral(numeralToInt(first) - numeralToInt(second), buf);
+}
+
 int numeralToInt(char *numeral) {
     int i, len = strlen(numeral);
     char thisChar[2];
