@@ -1,30 +1,36 @@
 #include <string.h>
 #include <ctype.h>
+#include <stdbool.h>
 #include "numerals.h"
 
 static const char *NULLA = "nulla";
 static const int MAX_ROMAN_NUMERAL_VALUE = 3999;
+static const int MIN_ROMAN_NUMERAL_VALUE = 1;
 
 void add(const char *first, const char *second, char *buf) {
     int firstVal = numeralToInt(first);
     int secondVal = numeralToInt(second);
     int total = firstVal + secondVal;
-    if (total > MAX_ROMAN_NUMERAL_VALUE) {
-        strcpy(buf, NULLA);
+    if (boundsCheck(total)) {
+        intToNumeral(total, buf);
         return;
     }
-    intToNumeral(total, buf);
+    strcpy(buf, NULLA);
 }
 
 void subtract(const char *first, const char *second, char *buf) {
     int firstVal = numeralToInt(first);
     int secondVal = numeralToInt(second);
     int total = firstVal - secondVal;
-    if (total < 1) {
-        strcpy(buf, NULLA);
+    if (boundsCheck(total)) {
+        intToNumeral(total, buf);
         return;
     }
-    intToNumeral(total, buf);
+    strcpy(buf, NULLA);
+}
+
+bool boundsCheck(int total) {
+    return total >= MIN_ROMAN_NUMERAL_VALUE && total <= MAX_ROMAN_NUMERAL_VALUE;
 }
 
 int numeralToInt(const char *numeral) {
