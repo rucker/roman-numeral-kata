@@ -3,30 +3,24 @@
 #include <stdbool.h>
 #include "numerals.h"
 
-static const char *NULLA = "nulla";
+static const char *RESULT_NOT_VALID_IN_ROMAN_SYSTEM = "nulla";
 static const int MAX_ROMAN_NUMERAL_VALUE = 3999;
 static const int MIN_ROMAN_NUMERAL_VALUE = 1;
 
 void add(const char *first, const char *second, char *buf) {
-    int firstVal = numeralToInt(first);
-    int secondVal = numeralToInt(second);
-    int total = firstVal + secondVal;
-    if (boundsCheck(total)) {
-        intToNumeral(total, buf);
-        return;
-    }
-    strcpy(buf, NULLA);
+    translateTotal(numeralToInt(first) + numeralToInt(second), buf);
 }
 
 void subtract(const char *first, const char *second, char *buf) {
-    int firstVal = numeralToInt(first);
-    int secondVal = numeralToInt(second);
-    int total = firstVal - secondVal;
+    translateTotal(numeralToInt(first) - numeralToInt(second), buf);
+}
+
+void translateTotal(int total, char *buf) {
     if (boundsCheck(total)) {
         intToNumeral(total, buf);
         return;
     }
-    strcpy(buf, NULLA);
+    strcpy(buf, RESULT_NOT_VALID_IN_ROMAN_SYSTEM);
 }
 
 bool boundsCheck(int total) {
