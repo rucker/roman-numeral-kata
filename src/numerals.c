@@ -2,12 +2,15 @@
 #include <ctype.h>
 #include "numerals.h"
 
+static const char *NULLA = "nulla";
+static const int MAX_ROMAN_NUMERAL_VALUE = 3999;
+
 void add(const char *first, const char *second, char *buf) {
     int firstVal = numeralToInt(first);
     int secondVal = numeralToInt(second);
     int total = firstVal + secondVal;
-    if (total > 3999) {
-        strcpy(buf, "nulla");
+    if (total > MAX_ROMAN_NUMERAL_VALUE) {
+        strcpy(buf, NULLA);
         return;
     }
     intToNumeral(total, buf);
@@ -18,7 +21,6 @@ void subtract(const char *first, const char *second, char *buf) {
 }
 
 int numeralToInt(const char *numeral) {
-    const int MAX_ROMAN_NUMERAL_VALUE = 3999;
     int i, len = strlen(numeral);
     char thisChar[2];
     const char *numeralPtr = numeral + len -1;
