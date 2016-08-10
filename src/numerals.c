@@ -11,6 +11,7 @@ void subtract(const char *first, const char *second, char *buf) {
 }
 
 int numeralToInt(const char *numeral) {
+    const int MAX_ROMAN_NUMERAL_VALUE = 3999;
     int i, len = strlen(numeral);
     char thisChar[2];
     const char *numeralPtr = numeral + len -1;
@@ -26,6 +27,9 @@ int numeralToInt(const char *numeral) {
         }
         else {
             totalForNumeral += thisVal;
+            if (totalForNumeral > MAX_ROMAN_NUMERAL_VALUE) {
+                return 0;
+            }
         }
         prevVal = thisVal;
      }
