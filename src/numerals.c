@@ -1,7 +1,5 @@
 #include <string.h>
 #include <ctype.h>
-#include <stdlib.h>
-#include <stdio.h>
 #include "numerals.h"
 
 void add(const char *first, const char *second, char *buf) {
@@ -72,7 +70,6 @@ int charToInt(const char *c) {
         case 'm':
             return 1000;
          default:
-            printf("The letter %s is not a valid Roman numeral!\n", c);
-            exit(1);
+            return 0;
      }
 }
