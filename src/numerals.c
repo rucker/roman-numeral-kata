@@ -3,7 +3,14 @@
 #include "numerals.h"
 
 void add(const char *first, const char *second, char *buf) {
-    intToNumeral(numeralToInt(first) + numeralToInt(second), buf);
+    int firstVal = numeralToInt(first);
+    int secondVal = numeralToInt(second);
+    int total = firstVal + secondVal;
+    if (total > 3999) {
+        strcpy(buf, "nulla");
+        return;
+    }
+    intToNumeral(total, buf);
 }
 
 void subtract(const char *first, const char *second, char *buf) {

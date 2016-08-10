@@ -48,6 +48,18 @@ START_TEST(add_xxvii_and_xl_produces_lxvii) {
 }
 END_TEST
 
+START_TEST(addition_total_out_of_range_produces_result_nulla) {
+    const char first[] = "mmd";
+    const char second[] = "mmd";
+    const char expected[] = "nulla";
+    size_t expectedSize = sizeof expected;
+    char result[expectedSize];
+    memset(result, 0, expectedSize);
+    add(first, second, result);
+    ck_assert_str_eq(result, expected);
+}
+END_TEST
+
 START_TEST(subtract_ix_from_c_produces_xci) {
     const char first[] = "c";
     const char second[] = "ix";
@@ -311,6 +323,7 @@ Suite * numerals_suite(void) {
     tcase_add_test(tc_basic, add_i_and_ii_produces_iii);
     tcase_add_test(tc_basic, add_iv_and_viii_produces_xii);
     tcase_add_test(tc_basic, add_xxvii_and_xl_produces_lxvii);
+    tcase_add_test(tc_basic, addition_total_out_of_range_produces_result_nulla);
 
     tcase_add_test(tc_basic, subtract_ix_from_c_produces_xci);
     tcase_add_test(tc_basic, subtract_xix_from_xliii_produces_xxiv);
