@@ -248,6 +248,13 @@ START_TEST(char_m_or_M_translates_to_int_1000) {
 }
 END_TEST
 
+START_TEST(invalid_char_translates_to_int_0) {
+    const char numeral[] = "z";
+    const int expected = 0;
+    ck_assert_int_eq(charToInt(numeral), expected);
+}
+END_TEST
+
 START_TEST(int_2_translates_to_numeral_ii) {
     const int number = 2;
     char expected[] = "ii";
@@ -361,6 +368,7 @@ Suite * numerals_suite(void) {
     tcase_add_test(tc_basic, char_c_or_C_translates_to_int_100);
     tcase_add_test(tc_basic, char_d_or_D_translates_to_int_500);
     tcase_add_test(tc_basic, char_m_or_M_translates_to_int_1000);
+    tcase_add_test(tc_basic, invalid_char_translates_to_int_0);
 
     tcase_add_test(tc_basic, numeral_ii_translates_to_int_2);
     tcase_add_test(tc_basic, numeral_iii_translates_to_int_3);
