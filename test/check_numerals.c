@@ -199,6 +199,13 @@ START_TEST(numeralToInt_should_handle_values_out_of_range) {
 }
 END_TEST
 
+START_TEST(numeralToInt_should_check_for_null_input_string) {
+    const char *numeral = NULL;
+    const int expected = 0;
+    ck_assert_int_eq(numeralToInt(numeral), expected);
+}
+END_TEST
+
 START_TEST(char_i_or_I_translates_to_int_1) {
     const char numeral[] = "i";
     const int expected = 1;
@@ -383,6 +390,7 @@ Suite * numerals_suite(void) {
     tcase_add_test(tc_basic, numeral_mmdxxv_translates_to_value_2525);
     tcase_add_test(tc_basic, numeral_mmmcmxcix_translates_to_value_3999);
     tcase_add_test(tc_basic, numeralToInt_should_handle_values_out_of_range);
+    tcase_add_test(tc_basic, numeralToInt_should_check_for_null_input_string);
 
     tcase_add_test(tc_basic, int_2_translates_to_numeral_ii);
     tcase_add_test(tc_basic, int_3_translates_to_numeral_iii);

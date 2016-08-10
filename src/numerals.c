@@ -28,6 +28,9 @@ bool boundsCheck(int total) {
 }
 
 int numeralToInt(const char *numeral) {
+    if (numeral == NULL) {
+        return 0;
+    }
     int i, len = strlen(numeral);
     char thisChar[2];
     const char *numeralPtr = numeral + len -1;
