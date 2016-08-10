@@ -1,10 +1,10 @@
 #ifndef NUMERALS_H
 #define NUMERALS_H
 
-void add(char *first, char *second, char *buf);
-void subtract(char *first, char *second, char *buf);
-int numeralToInt(char *numeral);
+void add(const char *first, const char *second, char *buf);
+void subtract(const char *first, const char *second, char *buf);
+int numeralToInt(const char *numeral);
 void intToNumeral(int number, char *buf);
-int charToInt(char *c);
+int charToInt(const char *c);
 
 #endif

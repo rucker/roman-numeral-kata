@@ -4,18 +4,18 @@
 #include <stdio.h>
 #include "numerals.h"
 
-void add(char *first, char *second, char *buf) {
+void add(const char *first, const char *second, char *buf) {
     intToNumeral(numeralToInt(first) + numeralToInt(second), buf);
 }
 
-void subtract(char *first, char *second, char *buf) {
+void subtract(const char *first, const char *second, char *buf) {
     intToNumeral(numeralToInt(first) - numeralToInt(second), buf);
 }
 
-int numeralToInt(char *numeral) {
+int numeralToInt(const char *numeral) {
     int i, len = strlen(numeral);
     char thisChar[2];
-    char *numeralPtr = numeral + len -1;
+    const char *numeralPtr = numeral + len -1;
     int thisVal;
     int prevVal = 0;
     int totalForNumeral = 0;
@@ -35,9 +35,9 @@ int numeralToInt(char *numeral) {
 }
 
 void intToNumeral(int number, char *buf) {
-    char numerals[13][3] = { "m", "cm", "d", "cd", "c", "xc", "l", "xl", "x", "ix", "v", "iv", "i" };
+    const char numerals[13][3] = { "m", "cm", "d", "cd", "c", "xc", "l", "xl", "x", "ix", "v", "iv", "i" };
     int numeralArrLen = 3;
-    char *numeralsPtr = numerals[0];
+    const char *numeralsPtr = numerals[0];
     char numeral[numeralArrLen];
     strcpy(numeral, numeralsPtr);
     numeralsPtr += numeralArrLen;
@@ -54,8 +54,8 @@ void intToNumeral(int number, char *buf) {
     }
 }
 
-int charToInt(char *c) {
-    char lnumeral = tolower(*c);
+int charToInt(const char *c) {
+    const char lnumeral = tolower(*c);
      switch(lnumeral) {
          case 'i':
              return 1;

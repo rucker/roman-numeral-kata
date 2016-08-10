@@ -3,9 +3,9 @@
 #include "../src/numerals.h"
 
 START_TEST(add_i_and_i_produces_ii) {
-    char first[] = "i";
-    char second[] = "i";
-    char expected[] = "ii";
+    const char first[] = "i";
+    const char second[] = "i";
+    const char expected[] = "ii";
     char result[sizeof(expected)];
     add(first, second, result);
 	ck_assert_str_eq(result, expected);
@@ -13,9 +13,9 @@ START_TEST(add_i_and_i_produces_ii) {
 END_TEST
 
 START_TEST(add_i_and_ii_produces_iii) {
-    char first[] = "i";
-    char second[] = "ii";
-    char expected[] = "iii";
+    const char first[] = "i";
+    const char second[] = "ii";
+    const char expected[] = "iii";
     size_t expectedSize = sizeof expected;
     char result[expectedSize];
     memset(result, 0, expectedSize);
@@ -25,9 +25,9 @@ START_TEST(add_i_and_ii_produces_iii) {
 END_TEST
 
 START_TEST(add_iv_and_viii_produces_xii) {
-    char first[] = "iv";
-    char second[] = "viii";
-    char expected[] = "xii";
+    const char first[] = "iv";
+    const char second[] = "viii";
+    const char expected[] = "xii";
     size_t expectedSize = sizeof expected;
     char result[expectedSize];
     memset(result, 0, expectedSize);
@@ -37,9 +37,9 @@ START_TEST(add_iv_and_viii_produces_xii) {
 END_TEST
 
 START_TEST(add_xxvii_and_xl_produces_lxvii) {
-    char first[] = "xxvii";
-    char second[] = "xl";
-    char expected[] = "lxvii";
+    const char first[] = "xxvii";
+    const char second[] = "xl";
+    const char expected[] = "lxvii";
     size_t expectedSize = sizeof expected;
     char result[expectedSize];
     memset(result, 0, expectedSize);
@@ -49,9 +49,9 @@ START_TEST(add_xxvii_and_xl_produces_lxvii) {
 END_TEST
 
 START_TEST(subtract_ix_from_c_produces_xci) {
-    char first[] = "c";
-    char second[] = "ix";
-    char expected[] = "xci";
+    const char first[] = "c";
+    const char second[] = "ix";
+    const char expected[] = "xci";
     size_t expectedSize = sizeof expected;
     char result[expectedSize];
     memset(result, 0, expectedSize);
@@ -61,9 +61,9 @@ START_TEST(subtract_ix_from_c_produces_xci) {
 END_TEST
 
 START_TEST(subtract_xix_from_xliii_produces_xxiv) {
-    char first[] = "xliii";
-    char second[] = "xix";
-    char expected[] = "xxiv";
+    const char first[] = "xliii";
+    const char second[] = "xix";
+    const char expected[] = "xxiv";
     size_t expectedSize = sizeof expected;
     char result[expectedSize];
     memset(result, 0, expectedSize);
@@ -73,147 +73,147 @@ START_TEST(subtract_xix_from_xliii_produces_xxiv) {
 END_TEST
 
 START_TEST(numeral_ii_translates_to_int_2) {
-    char numeral[] = "ii";
-    int expected = 2;
+    const char numeral[] = "ii";
+    const int expected = 2;
     ck_assert_int_eq(numeralToInt(numeral), expected);
 }
 END_TEST
 
 START_TEST(numeral_iii_translates_to_int_3) {
-    char numeral[] = "iii";
-    int expected = 3;
+    const char numeral[] = "iii";
+    const int expected = 3;
     ck_assert_int_eq(numeralToInt(numeral), expected);
 }
 END_TEST
 
 START_TEST(numeral_iv_translates_to_int_4) {
-    char numeral[] = "iv";
-    int expected = 4;
+    const char numeral[] = "iv";
+    const int expected = 4;
     ck_assert_int_eq(numeralToInt(numeral), expected);
 }
 END_TEST
 
 START_TEST(numeral_vi_translates_to_value_6) {
-    char numeral[] = "vi";
-    int expected = 6;
+    const char numeral[] = "vi";
+    const int expected = 6;
     ck_assert_int_eq(numeralToInt(numeral), expected);
 }
 END_TEST
 
 START_TEST(numeral_vii_translates_to_value_7) {
-    char numeral[] = "vii";
-    int expected = 7;
+    const char numeral[] = "vii";
+    const int expected = 7;
     ck_assert_int_eq(numeralToInt(numeral), expected);
 }
 END_TEST
 
 START_TEST(numeral_viii_translates_to_value_8) {
-    char numeral[] = "viii";
-    int expected = 8;
+    const char numeral[] = "viii";
+    const int expected = 8;
     ck_assert_int_eq(numeralToInt(numeral), expected);
 }
 END_TEST
 
 START_TEST(numeral_ix_translates_to_value_9) {
-    char numeral[] = "ix";
-    int expected = 9;
+    const char numeral[] = "ix";
+    const int expected = 9;
     ck_assert_int_eq(numeralToInt(numeral), expected);
 }
 END_TEST
 
 START_TEST(numeral_xl_translates_to_value_40) {
-    char numeral[] = "xl";
-    int expected = 40;
+    const char numeral[] = "xl";
+    const int expected = 40;
     ck_assert_int_eq(numeralToInt(numeral), expected);
 }
 END_TEST
 
 START_TEST(numeral_mcmxcii_translates_to_value_1992) {
-    char numeral[] = "mcmxcii";
-    int expected = 1992;
+    const char numeral[] = "mcmxcii";
+    const int expected = 1992;
     ck_assert_int_eq(numeralToInt(numeral), expected);
 }
 END_TEST
 
 START_TEST(numeral_mmxvi_translates_to_value_2016) {
-    char numeral[] = "mmxvi";
-    int expected = 2016;
+    const char numeral[] = "mmxvi";
+    const int expected = 2016;
     ck_assert_int_eq(numeralToInt(numeral), expected);
 }
 END_TEST
 
 START_TEST(numeral_mmdxxv_translates_to_value_2525) {
-    char numeral[] = "mmdxxv";
-    int expected = 2525;
+    const char numeral[] = "mmdxxv";
+    const int expected = 2525;
     ck_assert_int_eq(numeralToInt(numeral), expected);
 }
 END_TEST
 
 START_TEST(numeral_mmmcmxcix_translates_to_value_3999) {
-    char numeral[] = "mmmcmxcix";
-    int expected = 3999;
+    const char numeral[] = "mmmcmxcix";
+    const int expected = 3999;
     ck_assert_int_eq(numeralToInt(numeral), expected);
 }
 END_TEST
 
 START_TEST(char_i_or_I_translates_to_int_1) {
-    char numeral[] = "i";
-    int expected = 1;
+    const char numeral[] = "i";
+    const int expected = 1;
     ck_assert_int_eq(charToInt(numeral), expected);
 }
 END_TEST
 
 START_TEST(char_v_or_V_translates_to_int_5) {
-    char numeral[] = "v";
-    int expected = 5;
+    const char numeral[] = "v";
+    const int expected = 5;
     ck_assert_int_eq(charToInt(numeral), expected);
 }
 END_TEST
 
 START_TEST(char_x_or_X_translates_to_int_10) {
-    char numeral[] = "v";
-    int expected = 5;
+    const char numeral[] = "v";
+    const int expected = 5;
     ck_assert_int_eq(charToInt(numeral), expected);
 }
 END_TEST
 
 START_TEST(char_l_or_L_translates_to_int_50) {
-    char numeral[] = "x";
-    int expected = 10;
+    const char numeral[] = "x";
+    const int expected = 10;
     ck_assert_int_eq(charToInt(numeral), expected);
 }
 END_TEST
 
 START_TEST(char_c_or_C_translates_to_int_100) {
-    char numeral[] = "l";
-    int expected = 50;
+    const char numeral[] = "l";
+    const int expected = 50;
     ck_assert_int_eq(charToInt(numeral), expected);
 }
 END_TEST
 
 START_TEST(char_d_or_D_translates_to_int_500) {
-    char numeral[] = "c";
-    int expected = 100;
+    const char numeral[] = "c";
+    const int expected = 100;
     ck_assert_int_eq(charToInt(numeral), expected);
 }
 END_TEST
 
 START_TEST(char_m_or_M_translates_to_int_1000) {
-    char numeral[] = "d";
-    int expected = 500;
+    const char numeral[] = "d";
+    const int expected = 500;
     ck_assert_int_eq(charToInt(numeral), expected);
 }
 END_TEST
 
 START_TEST(invalid_char_causes_program_exit_with_status_1) {
-    char numeral[] = "z";
-    int expected = 0;
+    const char numeral[] = "z";
+    const int expected = 0;
     ck_assert_int_eq(charToInt(numeral), expected);
 }
 END_TEST
 
 START_TEST(int_2_translates_to_numeral_ii) {
-    int number = 2;
+    const int number = 2;
     char expected[] = "ii";
     size_t expectedSize = sizeof expected;
     char result[expectedSize];
@@ -224,8 +224,8 @@ START_TEST(int_2_translates_to_numeral_ii) {
 END_TEST
 
 START_TEST(int_3_translates_to_numeral_iii) {
-    int number = 2;
-    char expected[] = "ii";
+    const int number = 2;
+    const char expected[] = "ii";
     size_t expectedSize = sizeof expected;
     char result[expectedSize];
     memset(result, 0, expectedSize);
@@ -235,8 +235,8 @@ START_TEST(int_3_translates_to_numeral_iii) {
 END_TEST
 
 START_TEST(int_4_translates_to_numeral_iv) {
-    int number = 4;
-    char expected[] = "iv";
+    const int number = 4;
+    const char expected[] = "iv";
     size_t expectedSize = sizeof expected;
     char result[expectedSize];
     memset(result, 0, expectedSize);
@@ -246,8 +246,8 @@ START_TEST(int_4_translates_to_numeral_iv) {
 END_TEST
 
 START_TEST(int_9_translates_to_numeral_ix) {
-    int number = 9;
-    char expected[] = "ix";
+    const int number = 9;
+    const char expected[] = "ix";
     size_t expectedSize = sizeof expected;
     char result[expectedSize];
     memset(result, 0, expectedSize);
@@ -257,8 +257,8 @@ START_TEST(int_9_translates_to_numeral_ix) {
 END_TEST
 
 START_TEST(int_40_translates_to_numeral_xl) {
-    int number = 40;
-    char expected[] = "xl";
+    const int number = 40;
+    const char expected[] = "xl";
     size_t expectedSize = sizeof expected;
     char result[expectedSize];
     memset(result, 0, expectedSize);
@@ -268,8 +268,8 @@ START_TEST(int_40_translates_to_numeral_xl) {
 END_TEST
 
 START_TEST(int_90_translates_to_numeral_xc) {
-    int number = 90;
-    char expected[] = "xc";
+    const int number = 90;
+    const char expected[] = "xc";
     size_t expectedSize = sizeof expected;
     char result[expectedSize];
     memset(result, 0, expectedSize);
@@ -279,8 +279,8 @@ START_TEST(int_90_translates_to_numeral_xc) {
 END_TEST
 
 START_TEST(int_400_translates_to_numeral_cd) {
-    int number = 400;
-    char expected[] = "cd";
+    const int number = 400;
+    const char expected[] = "cd";
     size_t expectedSize = sizeof expected;
     char result[expectedSize];
     memset(result, 0, expectedSize);
@@ -290,8 +290,8 @@ START_TEST(int_400_translates_to_numeral_cd) {
 END_TEST
 
 START_TEST(int_900_translates_to_numeral_cm) {
-    int number = 900;
-    char expected[] = "cm";
+    const int number = 900;
+    const char expected[] = "cm";
     size_t expectedSize = sizeof expected;
     char result[expectedSize];
     memset(result, 0, expectedSize);
@@ -353,7 +353,7 @@ Suite * numerals_suite(void) {
     return s;
 }
 
-int main(void) {
+const int main(void) {
     int num_failed;
     Suite *s;
     SRunner *sr;
