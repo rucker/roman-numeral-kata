@@ -17,7 +17,14 @@ void add(const char *first, const char *second, char *buf) {
 }
 
 void subtract(const char *first, const char *second, char *buf) {
-    intToNumeral(numeralToInt(first) - numeralToInt(second), buf);
+    int firstVal = numeralToInt(first);
+    int secondVal = numeralToInt(second);
+    int total = firstVal - secondVal;
+    if (total < 1) {
+        strcpy(buf, NULLA);
+        return;
+    }
+    intToNumeral(total, buf);
 }
 
 int numeralToInt(const char *numeral) {
