@@ -80,7 +80,7 @@ START_TEST(subtract_xix_from_xliii_produces_xxiv) {
     char result[expectedSize];
     memset(result, 0, expectedSize);
     subtract(first, second, result);
-       ck_assert_str_eq(result, expected);
+    ck_assert_str_eq(result, expected);
 }
 END_TEST
 
@@ -92,7 +92,19 @@ START_TEST(subtract_v_from_v_produces_value_nulla) {
     char result[expectedSize];
     memset(result, 0, expectedSize);
     subtract(first, second, result);
-       ck_assert_str_eq(result, expected);
+    ck_assert_str_eq(result, expected);
+}
+END_TEST
+
+START_TEST(subtract_x_from_v_produces_value_nulla) {
+    const char first[] = "v";
+    const char second[] = "x";
+    const char expected[] = "nulla";
+    size_t expectedSize = sizeof expected;
+    char result[expectedSize];
+    memset(result, 0, expectedSize);
+    subtract(first, second, result);
+    ck_assert_str_eq(result, expected);
 }
 END_TEST
 
@@ -340,6 +352,7 @@ Suite * numerals_suite(void) {
     tcase_add_test(tc_basic, subtract_ix_from_c_produces_xci);
     tcase_add_test(tc_basic, subtract_xix_from_xliii_produces_xxiv);
     tcase_add_test(tc_basic, subtract_v_from_v_produces_value_nulla);
+    tcase_add_test(tc_basic, subtract_x_from_v_produces_value_nulla);
 
     tcase_add_test(tc_basic, char_i_or_I_translates_to_int_1);
     tcase_add_test(tc_basic, char_v_or_V_translates_to_int_5);
