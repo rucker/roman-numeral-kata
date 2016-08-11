@@ -56,6 +56,9 @@ int numeralToInt(const char *numeral) {
 }
 
 void intToNumeral(int number, char *buf) {
+    if (buf == NULL) {
+        return;
+    }
     const char numerals[13][3] = { "m", "cm", "d", "cd", "c", "xc", "l", "xl", "x", "ix", "v", "iv", "i" };
     int numeralArrLen = 3;
     const char *numeralsPtr = numerals[0];

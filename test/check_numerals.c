@@ -350,6 +350,15 @@ START_TEST(int_900_translates_to_numeral_cm) {
 }
 END_TEST
 
+START_TEST(intToNumeral_should_check_for_null_buffer) {
+    const int number = 900;
+    const char expected = 0;
+    char *result = NULL;
+    intToNumeral(number, result);
+    ck_assert_int_eq(result, expected);
+}
+END_TEST
+
 Suite * numerals_suite(void) {
     Suite *s;
     TCase *tc_basic;
@@ -402,6 +411,7 @@ Suite * numerals_suite(void) {
     tcase_add_test(tc_basic, int_90_translates_to_numeral_xc);
     tcase_add_test(tc_basic, int_400_translates_to_numeral_cd);
     tcase_add_test(tc_basic, int_900_translates_to_numeral_cm);
+    tcase_add_test(tc_basic, intToNumeral_should_check_for_null_buffer);
 
     suite_add_tcase(s, tc_basic);
 
