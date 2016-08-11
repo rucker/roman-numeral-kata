@@ -3,7 +3,7 @@
 #include <stdbool.h>
 #include "numerals.h"
 
-static const char *RESULT_NOT_VALID_IN_ROMAN_SYSTEM = "nulla";
+static const char *NOTHING = "nullus";
 static const int MAX_ROMAN_NUMERAL_VALUE = 3999;
 static const int MIN_ROMAN_NUMERAL_VALUE = 1;
 
@@ -20,7 +20,7 @@ void translateTotal(int total, char *buf) {
         intToNumeral(total, buf);
         return;
     }
-    strcpy(buf, RESULT_NOT_VALID_IN_ROMAN_SYSTEM);
+    strcpy(buf, NOTHING);
 }
 
 bool boundsCheck(int total) {

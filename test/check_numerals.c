@@ -50,10 +50,10 @@ START_TEST(add_xxvii_and_xl_produces_lxvii) {
 }
 END_TEST
 
-START_TEST(addition_total_out_of_range_produces_result_nulla) {
+START_TEST(addition_total_out_of_range_produces_result_nullus) {
     const char first[] = "mmd";
     const char second[] = "mmd";
-    const char expected[] = "nulla";
+    const char expected[] = "nullus";
     size_t expectedSize = sizeof expected;
     char result[expectedSize];
     memset(result, 0, expectedSize);
@@ -86,10 +86,10 @@ START_TEST(subtract_xix_from_xliii_produces_xxiv) {
 }
 END_TEST
 
-START_TEST(subtract_v_from_v_produces_value_nulla) {
+START_TEST(subtract_v_from_v_produces_value_nullus) {
     const char first[] = "v";
     const char second[] = "v";
-    const char expected[] = "nulla";
+    const char expected[] = "nullus";
     size_t expectedSize = sizeof expected;
     char result[expectedSize];
     memset(result, 0, expectedSize);
@@ -98,10 +98,10 @@ START_TEST(subtract_v_from_v_produces_value_nulla) {
 }
 END_TEST
 
-START_TEST(subtract_x_from_v_produces_value_nulla) {
+START_TEST(subtract_x_from_v_produces_value_nullus) {
     const char first[] = "v";
     const char second[] = "x";
-    const char expected[] = "nulla";
+    const char expected[] = "nullus";
     size_t expectedSize = sizeof expected;
     char result[expectedSize];
     memset(result, 0, expectedSize);
@@ -372,12 +372,12 @@ Suite * numerals_suite(void) {
     tcase_add_test(tc_basic, add_i_and_ii_produces_iii);
     tcase_add_test(tc_basic, add_iv_and_viii_produces_xii);
     tcase_add_test(tc_basic, add_xxvii_and_xl_produces_lxvii);
-    tcase_add_test(tc_basic, addition_total_out_of_range_produces_result_nulla);
+    tcase_add_test(tc_basic, addition_total_out_of_range_produces_result_nullus);
 
     tcase_add_test(tc_basic, subtract_ix_from_c_produces_xci);
     tcase_add_test(tc_basic, subtract_xix_from_xliii_produces_xxiv);
-    tcase_add_test(tc_basic, subtract_v_from_v_produces_value_nulla);
-    tcase_add_test(tc_basic, subtract_x_from_v_produces_value_nulla);
+    tcase_add_test(tc_basic, subtract_v_from_v_produces_value_nullus);
+    tcase_add_test(tc_basic, subtract_x_from_v_produces_value_nullus);
 
     tcase_add_test(tc_basic, char_i_or_I_translates_to_int_1);
     tcase_add_test(tc_basic, char_v_or_V_translates_to_int_5);
