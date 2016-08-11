@@ -6,7 +6,9 @@ START_TEST(add_i_and_i_produces_ii) {
     const char first[] = "i";
     const char second[] = "i";
     const char expected[] = "ii";
-    char result[sizeof(expected)];
+    size_t expectedSize = sizeof expected;
+    char result[expectedSize];
+    memset(result, 0, expectedSize);
     add(first, second, result);
 	ck_assert_str_eq(result, expected);
 }
